@@ -1,0 +1,44 @@
+[System]
+Name='projekat'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='e'
+Range=[-6 6]
+NumMFs=3
+MF1='neg':'trapmf',[-10.5 -6.5 -5 0]
+MF2='nula':'trimf',[-4 0 4]
+MF3='poz':'trapmf',[0 5 6.5 10.5]
+
+[Input2]
+Name='de'
+Range=[-0.25 0.25]
+NumMFs=2
+MF1='neg':'trimf',[-0.4577 -0.25 0]
+MF2='poz':'trimf',[0 0.25 0.4587]
+
+[Output1]
+Name='upr'
+Range=[-15 15]
+NumMFs=5
+MF1='malo':'trapmf',[-26.25 -15 -12.5 0]
+MF2='srednjemalo':'trimf',[-7.5 -3.75 0]
+MF3='srednje':'trimf',[-3.5 0 3.5]
+MF4='veliko':'trapmf',[1.5 12.5 15 28.5]
+MF5='srednjeveliko':'trimf',[0 3.75 7.5]
+
+[Rules]
+1 0, 1 (1) : 1
+2 0, 3 (1) : 1
+3 0, 4 (1) : 1
+2 1, 2 (1) : 1
+2 2, 5 (1) : 1
